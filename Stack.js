@@ -111,32 +111,64 @@ function parentheses(exp) {
   }
 
 
+}
 
+function sort(stack){  
+  //come back to if have time
+  let finalStack = new Stack();
+  let peekVar = peek(finalStack);
+    
+  while(stack.top !== null){
+    // let peekVar = peek(stack);    
+   
+    let tempVar = stack.pop();
+    finalStack.push(tempVar);
+    // let peekVar = peek(stack);    
+        
+    if(tempVar > peekVar){
+      console.log('in comparison')
+      
+    }
+    
+
+  }
+ 
+ 
+  return  display(finalStack);
 
 }
+
+
+
 
 
 
 function main() {
   let starTrek = new Stack();
   let empty = new Stack
+  let numStack = new Stack();
 
   starTrek.push("Kirk");
   starTrek.push("Spock");
   starTrek.push("McCoy");
   starTrek.push("Scotty");
+  // display(starTrek);
+  // starTrek.pop();
+  // starTrek.pop();
   display(starTrek);
-  starTrek.pop();
-  starTrek.pop();
-  display(starTrek);
-  peek(starTrek);
-  isEmpty(empty);
+  // peek(starTrek);
+  // isEmpty(empty);
   // True, true, true, false
-  console.log(is_palindrome("dad")); //true
-  console.log(is_palindrome("A man, a plan, a canal: Panama")); //true
-  console.log(is_palindrome("1001")); // true
-  console.log(is_palindrome("Tauhida")); //false
-  parentheses('(()'); // missing
-  parentheses('(())'); //good to go
+  // console.log(is_palindrome("dad")); //true
+  // console.log(is_palindrome("A man, a plan, a canal: Panama")); //true
+  // console.log(is_palindrome("1001")); // true
+  // console.log(is_palindrome("Tauhida")); //false
+  // parentheses('(()'); // missing
+  // parentheses('(())'); //good to go
+  numStack.push(1);
+  numStack.push(3);
+  numStack.push(8);
+  numStack.push(4);
+  // sort(numStack);
 }
 main();
