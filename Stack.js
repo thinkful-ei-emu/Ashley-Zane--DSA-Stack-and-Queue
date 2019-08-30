@@ -57,9 +57,9 @@ function peek(stack) {
 }
 
 
-function isEmpty(stack){
-  let currentNode=stack.top;
-  if(currentNode===null){
+function isEmpty(stack) {
+  let currentNode = stack.top;
+  if (currentNode === null) {
     console.log("empty Stack")
   }
 
@@ -70,19 +70,48 @@ function is_palindrome(s) {
   let strStack = new Stack();
   let reverseStr = '';
 
-  for(let i=0; i < s.length; i++){
+  for (let i = 0; i < s.length; i++) {
     console.log(s[i]);
     strStack.push(s[i]);
-    
+
   }
 
   while (strStack.top !== null) {
     reverseStr += strStack.pop();
 
   }
-  display(strStack);
+  // display(strStack);
 
   return s === reverseStr;
+
+}
+
+
+function parentheses(exp) {
+
+  let expStack = new Stack();
+
+  for (let i = 0; i < exp.length; i++) {
+    console.log(exp[i]);
+
+    if (exp[i] === '(') {
+      expStack.push(exp[i]);
+    }
+    else if (exp[i] === ')') {
+      expStack.pop(exp[i]);
+    }
+
+  }
+
+  if (expStack.top === null) {
+    return console.log('you have enough parentheses');
+  }
+  else {
+    return console.log('you are missing a parentheses')
+  }
+
+
+
 
 }
 
@@ -90,7 +119,7 @@ function is_palindrome(s) {
 
 function main() {
   let starTrek = new Stack();
-  let empty= new Stack
+  let empty = new Stack
 
   starTrek.push("Kirk");
   starTrek.push("Spock");
@@ -103,9 +132,11 @@ function main() {
   peek(starTrek);
   isEmpty(empty);
   // True, true, true, false
-console.log(is_palindrome("dad")); //true
-console.log(is_palindrome("A man, a plan, a canal: Panama")); //true
-console.log(is_palindrome("1001")); // true
-console.log(is_palindrome("Tauhida")); //false
+  console.log(is_palindrome("dad")); //true
+  console.log(is_palindrome("A man, a plan, a canal: Panama")); //true
+  console.log(is_palindrome("1001")); // true
+  console.log(is_palindrome("Tauhida")); //false
+  parentheses('(()'); // missing
+  parentheses('(())'); //good to go
 }
 main();
