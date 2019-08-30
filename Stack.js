@@ -36,47 +36,48 @@ class Stack {
 }
 
 function display(stack) {
-  let displayedstack=""
+  let displayedstack = "";
   let currentNode = stack.top;
 
   while (currentNode !== null) {
-    if(currentNode.next===null){
-      currentNode=stack.top;
-    }
-    
-    
-     console.group(currentNode);
-    displayedstack += `${currentNode.data},`;
-    console.log(displayedstack);
-    currentNode=currentNode.next;
-    
+    displayedstack += `${currentNode.data}, `;
+    currentNode = currentNode.next;
   }
-
   console.log(displayedstack);
-
   return displayedstack;
 }
 
-function peek(stack){
-  let currentNode=stack.top;
-  while(currentNode!==null){
-    if(currentNode.next===null){
-      console.log(currentNode.data);
-      return currentNode.data;
-    }
-    currentNode=currentNode.next;
+function peek(stack) {
+  let currentNode = stack.top;
+  if (currentNode !== null) {
+    console.log(currentNode.data);
+    return currentNode;
   }
+  currentNode = currentNode.next;
 }
+
+
+function isEmpty(stack){
+  let currentNode=stack.top;
+  if(currentNode===null){
+    console.log("empty Stack")
+  }
+
+};
 
 function main() {
   let starTrek = new Stack();
+  let empty= new Stack
 
   starTrek.push("Kirk");
   starTrek.push("Spock");
   starTrek.push("McCoy");
   starTrek.push("Scotty");
-
-   display(starTrek);
+  display(starTrek);
+  starTrek.pop();
+  starTrek.pop();
+  display(starTrek);
   peek(starTrek);
+  isEmpty(empty);
 }
 main();
